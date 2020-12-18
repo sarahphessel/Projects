@@ -50,9 +50,9 @@ const products = [
 ]
 
 function App() {
-  const [maxFilter] = useState('')
-  const [minFilter] = useState('')
-  const [nameFilter] = useState('')
+  const [maxFilter] = useState(1000)
+  const [minFilter] = useState(50)
+  const [nameFilter] = useState('Produto 1')
   
   return (
     <AppContainer>
@@ -63,6 +63,9 @@ function App() {
       />
       <Products 
       products={products}
+      maxFilter={maxFilter}
+      minFilter={minFilter}
+      nameFilter={nameFilter}
       />
       <ShoppingCard/>
     </AppContainer>

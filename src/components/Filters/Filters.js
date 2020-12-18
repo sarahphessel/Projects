@@ -1,9 +1,7 @@
-import Products from '../Products/Products';
 import {FiltersContainer, InputContainer} from './styles'
 
 function Filters(props) {
-
-
+  
     return (
       <FiltersContainer>
         <h3>Filtros</h3>

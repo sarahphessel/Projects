@@ -1,11 +1,25 @@
+import { useEffect } from 'react'
 import ProductsCard from './ProductsCard'
 import { ProductsContainer, ProductsHeader, ProductsGrid } from './styles'
 
 function Products(props) {
+
+  useEffect(() => {
+    getFilteredAndOrderedList()
+  })
+
+  const getFilteredAndOrderedList = () => {
+    return props.products
+    .filter((product) => product.price < props.maxFilter )
+    .filter((product) => product.price > props.minFilter )
+    .filter((product) => product.name.includes(props.nameFilter))
+  }
+    const filteredAndOrderedList = getFilteredAndOrderedList()
+    
   return (
     <ProductsContainer>
       <ProductsHeader>
-        <p>Quantidade de produtos: 5</p>
+        <p>Quantidade de produtos: {filteredAndOrderedList.length}</p>
         <label>
           Ordenação: 
           <select>
@@ -15,7 +29,7 @@ function Products(props) {
         </label>
       </ProductsHeader>
       <ProductsGrid>
-      {props.products.map(product => {
+      {filteredAndOrderedList.map(product => {
         return <ProductsCard product={product}/>
       })}
       </ProductsGrid>
