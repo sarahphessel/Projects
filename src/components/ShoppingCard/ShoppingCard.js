@@ -2,7 +2,7 @@ import ShoppingCardItem from './ShoppingCardItem'
 import {ShoppingContainer} from './styles'
 
 function ShoppingCard(props) {
-
+ // Função para calcular o valor total (preço vezes quantidade)
   const getTotalValue = () => {
     let totalValue = 0
     for(let product of props.productsInCard){

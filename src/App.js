@@ -50,6 +50,7 @@ const products = [
 ]
 
 function App() {
+  //Estados
   const [maxFilter, setMaxFilter] = useState(1000)
   const [minFilter, setMinFilter] = useState(100)
   const [nameFilter, setNameFilter] = useState('Produto')
@@ -70,6 +71,17 @@ function App() {
       quantity: 2,
     },
   ])
+
+  // onChanges dos filtros 
+  const onChangeMinValue = (event) => {
+     setMinFilter(event.target.value)
+   }
+   const onChangeMaxValue = (event) => {
+     setMaxFilter(event.target.value)
+   }
+   const onChangeNameValue = (event) => {
+     setNameFilter(event.target.value)
+  }
   
   return (
     <AppContainer>
@@ -77,9 +89,9 @@ function App() {
       maxFilter={maxFilter}
       minFilter={minFilter}
       nameFilter={nameFilter}
-      // setNameFilter={setNameFilter}
-      // setMaxFilter={setMaxFilter}
-      // setMinFilter={setMinFilter}
+      onChangeMinValue={onChangeMinValue}
+      onChangeMaxValue={onChangeMaxValue}
+      onChangeNameValue={onChangeNameValue}
       />
       <Products 
       products={products}
