@@ -50,9 +50,26 @@ const products = [
 ]
 
 function App() {
-  const [maxFilter] = useState(1000)
-  const [minFilter] = useState(50)
-  const [nameFilter] = useState('Produto 1')
+  const [maxFilter, setMaxFilter] = useState(1000)
+  const [minFilter, setMinFilter] = useState(100)
+  const [nameFilter, setNameFilter] = useState('Produto')
+  const [productsInCard, setProductsInCard] = useState([
+    {
+      id: 1,
+      photo: "https://picsum.photos/200/200",
+      name: "Produto 1",
+      price: 100.00,
+      quantity: 1,
+  
+    },
+    {
+      id: 2,
+      photo: "https://picsum.photos/200/200",
+      name: "Produto 2",
+      price: 150.00,
+      quantity: 2,
+    },
+  ])
   
   return (
     <AppContainer>
@@ -60,6 +77,9 @@ function App() {
       maxFilter={maxFilter}
       minFilter={minFilter}
       nameFilter={nameFilter}
+      // setNameFilter={setNameFilter}
+      // setMaxFilter={setMaxFilter}
+      // setMinFilter={setMinFilter}
       />
       <Products 
       products={products}
@@ -67,7 +87,9 @@ function App() {
       minFilter={minFilter}
       nameFilter={nameFilter}
       />
-      <ShoppingCard/>
+      <ShoppingCard
+      productsInCard={productsInCard}
+      />
     </AppContainer>
   );
 }

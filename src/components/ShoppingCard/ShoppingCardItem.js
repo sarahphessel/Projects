@@ -1,10 +1,11 @@
 import {CardContainer} from './styles'
 
-function ShoppingCardItem() {
+function ShoppingCardItem(props) {
+  const cardItem = props.cardItem
   return (
     <CardContainer>
-      <p>2x</p>
-      <p>Produto</p>
+      <p>{cardItem.quantity}x</p>
+      <p>{cardItem.name}</p>
       <button>Remover</button>
     </CardContainer>
   );

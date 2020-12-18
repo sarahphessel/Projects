@@ -1,14 +1,22 @@
 import ShoppingCardItem from './ShoppingCardItem'
 import {ShoppingContainer} from './styles'
 
-function ShoppingCard() {
+function ShoppingCard(props) {
+
+  const getTotalValue = () => {
+    let totalValue = 0
+    for(let product of props.productsInCard){
+      totalValue += product.price * product.quantity
+    }
+    return totalValue
+  }
   return (
     <ShoppingContainer>
       <h3>Carrinho </h3>
-      <ShoppingCardItem/>
-      <ShoppingCardItem/>
-      <ShoppingCardItem/>
-      <p>Valor total: R$300,00</p>
+      {props.productsInCard.map((product) => {
+        return <ShoppingCardItem cardItem={product}/>
+      })}
+      <p>Valor total: R${getTotalValue()},00</p>
     </ShoppingContainer>
   );
 }
